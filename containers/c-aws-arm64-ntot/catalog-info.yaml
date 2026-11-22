@@ -5,13 +5,14 @@ metadata:
   title: c-aws-arm64-ntot
   description: traefik/whoami:v1.10 on aws arm64 for team alpha
   annotations:
-    cf/status: deploying
+    cf/status: ready
     cf/url: https://c-aws-arm64-ntot.apps.idp.amirasyraf.dev
     cf/requested-by: amirasyraf
     cf/requested-at: "2026-11-22T22:53:40Z"
     cf/request-id: a96608fd-f00c-4804-a9ee-54b65374e207
-    cf/run-id: "45080223056"
-    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45080223056
+    cf/run-id: "45080390866"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45080390866
+    cf/ready-at: "2026-11-22T22:55:39Z"
 spec:
   type: container
   owner: group:default/alpha
