@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: c-azure-amd64-ntot
+  title: c-azure-amd64-ntot
+  description: traefik/whoami:v1.10 on azure amd64 for team alpha
+  annotations:
+    cf/status: deploying
+    cf/url: https://c-azure-amd64-ntot.apps.idp.amirasyraf.dev
+    cf/requested-by: amirasyraf
+    cf/requested-at: "2026-11-22T22:53:47Z"
+    cf/request-id: 751d3e01-3604-4f4a-94cb-1d0e08284da9
+    cf/run-id: "45080225353"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45080225353
+spec:
+  type: container
+  owner: group:default/alpha
+  lifecycle: poc
+  container:
+    platform: azure
+    arch: amd64
+    image: traefik/whoami:v1.10
+    port: 80
+    size: XS
+    replicas: 1
+    public: true
+    env:
+      WHOAMI_NAME: azure-amd64
+  billing:
+    costCenter: CC-1
+    projectCode: P-1
+  cloudTags: {}
