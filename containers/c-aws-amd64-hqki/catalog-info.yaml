@@ -5,28 +5,19 @@ metadata:
   title: c-aws-amd64-hqki
   description: traefik/whoami:v1.10 on aws amd64 for team alpha
   annotations:
-    cf/status: ready
+    cf/status: deploying
     cf/url: https://c-aws-amd64-hqki.apps.idp.amirasyraf.dev
     cf/requested-by: amirasyraf
     cf/requested-at: "2026-11-22T22:20:59Z"
     cf/request-id: 8d8bd756-6580-4cb9-b80f-ee7d15a29e38
-    cf/run-id: "45077351358"
-    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45077351358
+    cf/run-id: "45077460868"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45077460868
     cf/ready-at: "2026-11-22T22:22:29Z"
 spec:
   type: container
   owner: group:default/alpha
   lifecycle: poc
-  container:
-    platform: aws
-    arch: amd64
-    image: traefik/whoami:v1.10
-    port: 80
-    size: XS
-    replicas: 1
-    public: true
-    env:
-      WHOAMI_NAME: aws-amd64
+  container: {"platform": "aws", "arch": "amd64", "image": "traefik/whoami:v1.10", "port": 80, "size": "S", "replicas": 2, "public": true, "env": {"WHOAMI_NAME": "modified"}}
   billing:
     costCenter: CC-1
     projectCode: P-1
