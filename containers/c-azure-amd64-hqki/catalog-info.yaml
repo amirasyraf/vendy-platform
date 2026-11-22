@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: c-azure-amd64-hqki
+  title: c-azure-amd64-hqki
+  description: traefik/whoami:v1.10 on azure amd64 for team alpha
+  annotations:
+    cf/status: deploying
+    cf/url: https://c-azure-amd64-hqki.apps.idp.amirasyraf.dev
+    cf/requested-by: amirasyraf
+    cf/requested-at: "2026-11-22T22:21:00Z"
+    cf/request-id: fc8bd675-13fe-4fdb-aee7-6ad435dd0f60
+    cf/run-id: "45077208187"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45077208187
+spec:
+  type: container
+  owner: group:default/alpha
+  lifecycle: poc
+  container:
+    platform: azure
+    arch: amd64
+    image: traefik/whoami:v1.10
+    port: 80
+    size: XS
+    replicas: 1
+    public: true
+    env:
+      WHOAMI_NAME: azure-amd64
+  billing:
+    costCenter: CC-1
+    projectCode: P-1
+  cloudTags: {}
