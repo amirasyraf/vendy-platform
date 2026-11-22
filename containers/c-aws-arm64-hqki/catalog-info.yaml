@@ -5,13 +5,14 @@ metadata:
   title: c-aws-arm64-hqki
   description: traefik/whoami:v1.10 on aws arm64 for team alpha
   annotations:
-    cf/status: deploying
+    cf/status: ready
     cf/url: https://c-aws-arm64-hqki.apps.idp.amirasyraf.dev
     cf/requested-by: amirasyraf
     cf/requested-at: "2026-11-22T22:20:56Z"
     cf/request-id: 64d86fec-a06b-4dac-a10e-ef249cc3ae96
-    cf/run-id: "45077205546"
-    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45077205546
+    cf/run-id: "45077368270"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45077368270
+    cf/ready-at: "2026-11-22T22:22:39Z"
 spec:
   type: container
   owner: group:default/alpha
