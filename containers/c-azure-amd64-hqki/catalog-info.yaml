@@ -5,13 +5,14 @@ metadata:
   title: c-azure-amd64-hqki
   description: traefik/whoami:v1.10 on azure amd64 for team alpha
   annotations:
-    cf/status: deploying
+    cf/status: ready
     cf/url: https://c-azure-amd64-hqki.apps.idp.amirasyraf.dev
     cf/requested-by: amirasyraf
     cf/requested-at: "2026-11-22T22:21:00Z"
     cf/request-id: fc8bd675-13fe-4fdb-aee7-6ad435dd0f60
-    cf/run-id: "45077208187"
-    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45077208187
+    cf/run-id: "45077353711"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45077353711
+    cf/ready-at: "2026-11-22T22:22:34Z"
 spec:
   type: container
   owner: group:default/alpha
