@@ -1,0 +1,59 @@
+name: Container stage
+# One inventory stage per dispatch from the IDP container orchestrator (vendy/CONTRACTS.md §12).
+# Cluster changes are made by the IDP itself; this workflow only writes containers/<name>/.
+run-name: "container ${{ inputs.stage }} ${{ inputs.name }} by ${{ inputs.requested_by }} [${{ inputs.run_key }}]"
+on:
+  workflow_dispatch:
+    inputs:
+      stage: { type: string, required: true }
+      name: { type: string, required: true }
+      request_id: { type: string, required: true }
+      run_key: { type: string, required: true }
+      requested_by: { type: string, required: true }
+      requester_teams: { type: string, required: true }
+      params_json: { type: string, required: false, default: '{}' }
+concurrency:
+  group: container-${{ inputs.name }}
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  stage:
+    if: vars.CF_POC_MAINTENANCE != '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      NAME: ${{ inputs.name }}
+      STAGE: ${{ inputs.stage }}
+      REQUEST_ID: ${{ inputs.request_id }}
+      RUN_KEY: ${{ inputs.run_key }}
+      REQUESTED_BY: ${{ inputs.requested_by }}
+      REQUESTER_TEAMS: ${{ inputs.requester_teams }}
+      PARAMS_JSON: ${{ inputs.params_json }}
+      BACKSTAGE_URL: ${{ vars.BACKSTAGE_URL }}
+      BACKSTAGE_TOKEN: ${{ secrets.BACKSTAGE_TOKEN }}
+      INVENTORY_ROOT: ${{ github.workspace }}/.current-inventory
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Load current inventory
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: .current-inventory
+      - name: Validate inputs
+        id: validate
+        run: bash scripts/container-inventory.sh validate
+      - name: Write inventory
+        if: steps.validate.outputs.noop != 'true'
+        env:
+          SPEC_JSON: ${{ steps.validate.outputs.spec_json }}
+          OUTCOME: ${{ steps.validate.outputs.outcome }}
+        run: |
+          # https://idp.example -> apps.idp.example
+          export APPS_DOMAIN="apps.${BACKSTAGE_URL#https://}"
+          case "$STAGE" in
+            destroy) bash scripts/container-inventory.sh delete ;;
+            *) bash scripts/container-inventory.sh "$STAGE" ;;
+          esac

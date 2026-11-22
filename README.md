@@ -5,7 +5,7 @@ Terraform modules, Ansible playbooks, and VM inventory. The portal decides which
 GitHub Actions runs one stage per dispatch, serializes stages for the same VM, and writes the
 result back here.
 
-**The inventory is public.** Files under `vms/` and their Git history can include VM metadata,
+**The inventory is public.** Files under `vms/` and `containers/` and their Git history can include VM metadata,
 public IP addresses, and requester-supplied tags. Team permissions in the portal don't hide
 those files. Use dummy request data and never commit secrets.
 

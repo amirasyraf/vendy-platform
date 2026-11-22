@@ -276,3 +276,13 @@ inventory idempotency, config unions, provenance, first-time timestamps, missing
 no-ops and separate current-inventory reads/writes from pinned executor code. It does not
 invoke AWS/Terraform or prove live recovery behavior. Verify stage execution, SSH, and adoption
 separately on authorized disposable resources when those paths change.
+
+## Containers
+
+`containers/<name>/catalog-info.yaml` is written only by `.github/workflows/container-stage.yml`,
+one stage per dispatch from the IDP's container orchestrator: `register`, `configure`, `finalize`
+and `destroy` (delete). `scripts/container-inventory.sh validate` runs as `Validate inputs` (request
+identity, team guard, `scripts/container_spec.py` normalization, immutable owner/platform/arch); the
+other actions commit, push with rebase retries and refresh `location:default/cf-containers`. The
+cluster itself is changed by the IDP, not by this repo. The `container-request` template dispatches
+`cf:container:dispatch`. Contract: vendy CONTRACTS.md §12.
