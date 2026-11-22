@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: c-aws-arm64-ntot
+  title: c-aws-arm64-ntot
+  description: traefik/whoami:v1.10 on aws arm64 for team alpha
+  annotations:
+    cf/status: deploying
+    cf/url: https://c-aws-arm64-ntot.apps.idp.amirasyraf.dev
+    cf/requested-by: amirasyraf
+    cf/requested-at: "2026-11-22T22:53:40Z"
+    cf/request-id: a96608fd-f00c-4804-a9ee-54b65374e207
+    cf/run-id: "45080223056"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45080223056
+spec:
+  type: container
+  owner: group:default/alpha
+  lifecycle: poc
+  container:
+    platform: aws
+    arch: arm64
+    image: traefik/whoami:v1.10
+    port: 80
+    size: XS
+    replicas: 1
+    public: true
+    env:
+      WHOAMI_NAME: aws-arm64
+  billing:
+    costCenter: CC-1
+    projectCode: P-1
+  cloudTags: {}
