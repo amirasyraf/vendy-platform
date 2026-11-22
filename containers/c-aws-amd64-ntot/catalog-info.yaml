@@ -5,28 +5,19 @@ metadata:
   title: c-aws-amd64-ntot
   description: traefik/whoami:v1.10 on aws amd64 for team alpha
   annotations:
-    cf/status: ready
+    cf/status: deploying
     cf/url: https://c-aws-amd64-ntot.apps.idp.amirasyraf.dev
     cf/requested-by: amirasyraf
     cf/requested-at: "2026-11-22T22:53:38Z"
     cf/request-id: c9382c7f-42da-4241-bd89-456a0eb35193
-    cf/run-id: "45080359762"
-    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45080359762
+    cf/run-id: "45080479818"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45080479818
     cf/ready-at: "2026-11-22T22:55:15Z"
 spec:
   type: container
   owner: group:default/alpha
   lifecycle: poc
-  container:
-    platform: aws
-    arch: amd64
-    image: traefik/whoami:v1.10
-    port: 80
-    size: XS
-    replicas: 1
-    public: true
-    env:
-      WHOAMI_NAME: aws-amd64
+  container: {"platform": "aws", "arch": "amd64", "image": "traefik/whoami:v1.10", "port": 80, "size": "S", "replicas": 2, "public": true, "env": {"WHOAMI_NAME": "modified"}}
   billing:
     costCenter: CC-1
     projectCode: P-1
