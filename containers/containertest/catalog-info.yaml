@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: containertest
+  title: containertest
+  description: nginx:alpine on aws amd64 for team teama
+  annotations:
+    cf/status: deploying
+    cf/url: https://containertest.apps.idp.amirasyraf.dev
+    cf/requested-by: user1
+    cf/requested-at: "2026-11-23T23:03:15Z"
+    cf/request-id: 8561b77a-af0b-449b-b32e-5708567187d8
+    cf/run-id: "45285339019"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45285339019
+spec:
+  type: container
+  owner: group:default/teama
+  lifecycle: poc
+  container:
+    platform: aws
+    arch: amd64
+    image: nginx:alpine
+    port: 80
+    size: XS
+    replicas: 1
+    public: true
+    env: {}
+  billing:
+    costCenter: test
+    projectCode: test
+  cloudTags: {}
