@@ -124,5 +124,3 @@ spec:
     links:
       - title: Follow Deployment
         url: ${{ steps.dispatch.output.runUrl }}
-      - title: Open Container in Catalog
-        entityRef: resource:default/${{ parameters.name }}

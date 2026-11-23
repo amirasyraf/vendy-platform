@@ -286,4 +286,6 @@ identity, team guard, `scripts/container_spec.py` normalization, immutable owner
 other actions commit, push with rebase retries and refresh `location:default/cf-containers`. The
 cluster itself is changed by the IDP, not by this repo. The `container-request` template receives
 the chosen AWS or Azure platform from the portal's picker and displays it with the
-`ContainerPlatform` field before dispatching `cf:container:dispatch`. Contract: vendy CONTRACTS.md §12.
+`ContainerPlatform` field before dispatching `cf:container:dispatch`. Its output links to the
+deployment run, which offers the catalog link once the matching entry is visible.
+Contract: vendy CONTRACTS.md §12.
