@@ -284,5 +284,6 @@ one stage per dispatch from the IDP's container orchestrator: `register`, `confi
 and `destroy` (delete). `scripts/container-inventory.sh validate` runs as `Validate inputs` (request
 identity, team guard, `scripts/container_spec.py` normalization, immutable owner/platform/arch); the
 other actions commit, push with rebase retries and refresh `location:default/cf-containers`. The
-cluster itself is changed by the IDP, not by this repo. The `container-request` template dispatches
-`cf:container:dispatch`. Contract: vendy CONTRACTS.md §12.
+cluster itself is changed by the IDP, not by this repo. The `container-request` template receives
+the chosen AWS or Azure platform from the portal's picker and displays it with the
+`ContainerPlatform` field before dispatching `cf:container:dispatch`. Contract: vendy CONTRACTS.md §12.

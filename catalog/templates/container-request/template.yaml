@@ -4,11 +4,11 @@ metadata:
   name: container-request
   title: Deploy a Container
   description: Run a container image on managed Kubernetes (AWS or Azure, amd64 or arm64), with an optional public HTTPS URL.
-  # Listed under Compute → Containers; the Launch card opens this form directly.
+  # Launch → Compute → Containers selects a platform before opening this form.
   tags: [product]
   annotations:
     cf/product: Containers
-    cf/launch-flow: template
+    cf/launch-flow: platform
 spec:
   owner: group:default/platform-admins
   presentation:
@@ -34,6 +34,11 @@ spec:
           additionalProperties: false
           required: [platform, arch, image, port, size, replicas, public]
           properties:
+            platform:
+              title: Platform
+              type: string
+              enum: [aws, azure]
+              ui:field: ContainerPlatform
             image:
               title: Image
               type: string
@@ -45,12 +50,6 @@ spec:
               default: 80
               minimum: 1
               maximum: 65535
-            platform:
-              title: Platform
-              type: string
-              default: aws
-              enum: [aws, azure]
-              enumNames: [AWS, Azure]
             arch:
               title: Architecture
               type: string
