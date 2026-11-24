@@ -18,8 +18,8 @@ terraform {
   }
 }
 
-# Credentials and subscription come from ARM_* (OIDC in GitHub Actions, the cf-admin-local
-# certificate on the laptop). The resource providers are registered once per subscription.
+# Credentials and subscription come from ARM_* (OIDC in GitHub Actions or an operator certificate
+# locally). The resource providers are registered once per subscription.
 provider "azurerm" {
   features {}
   resource_provider_registrations = "none"
