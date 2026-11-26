@@ -13,8 +13,8 @@ metadata:
     cf/requested-by: user1
     cf/requested-at: "2026-11-26T02:02:15Z"
     cf/request-id: 899cc604-ecc4-4038-8b64-690d8a496b65
-    cf/run-id: "45739739749"
-    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45739739749
+    cf/run-id: "45739885374"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45739885374
 spec:
   type: vm
   owner: group:default/teama
