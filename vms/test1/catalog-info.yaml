@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: test1
+  title: test1
+  description: ubuntu VM on aws (XS) for team teama
+  annotations:
+    cf/status: provisioning
+    cf/public-ip: ""
+    cf/ssh-user: ubuntu
+    cf/instance-id: ""
+    cf/instance-type: ""
+    cf/requested-by: user1
+    cf/requested-at: "2026-11-26T02:02:15Z"
+    cf/request-id: 899cc604-ecc4-4038-8b64-690d8a496b65
+    cf/run-id: "45739702669"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45739702669
+spec:
+  type: vm
+  owner: group:default/teama
+  lifecycle: poc
+  compute:
+    platform: aws
+    os: ubuntu
+    imageVersion: "26.04"
+    size: XS
+  configuration:
+    software:
+      - git
+      - nginx
+      - docker
+      - htop
+    adJoin: true
+  billing:
+    costCenter: test
+    projectCode: test
+  cloudTags: {}
