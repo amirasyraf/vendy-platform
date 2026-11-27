@@ -5,13 +5,14 @@ metadata:
   title: testcontaineraws
   description: nginx:alpine on aws amd64 for team teama
   annotations:
-    cf/status: deploying
+    cf/status: ready
     cf/url: https://testcontaineraws.apps.idp.amirasyraf.dev
     cf/requested-by: user1
     cf/requested-at: "2026-11-27T00:56:30Z"
     cf/request-id: ef721b66-e055-46ab-a7a6-bf995221ce75
-    cf/run-id: "45919669336"
-    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45919669336
+    cf/run-id: "45919833640"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45919833640
+    cf/ready-at: "2026-11-27T00:58:21Z"
 spec:
   type: container
   owner: group:default/teama
