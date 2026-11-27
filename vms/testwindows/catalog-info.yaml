@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: testwindows
+  title: testwindows
+  description: windows VM on aws (S) for team teama
+  annotations:
+    cf/status: provisioning
+    cf/public-ip: ""
+    cf/ssh-user: Administrator
+    cf/instance-id: ""
+    cf/instance-type: ""
+    cf/requested-by: user1
+    cf/requested-at: "2026-11-27T00:54:31Z"
+    cf/request-id: 213fde29-100a-4b7d-a8ff-e0e6d5780bcc
+    cf/run-id: "45919475058"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45919475058
+spec:
+  type: vm
+  owner: group:default/teama
+  lifecycle: poc
+  compute:
+    platform: aws
+    os: windows
+    imageVersion: "2025"
+    size: S
+  configuration:
+    software:
+      - firefox
+      - vscode
+    adJoin: true
+  billing:
+    costCenter: test
+    projectCode: test
+  cloudTags: {}
