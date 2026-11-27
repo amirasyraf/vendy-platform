@@ -5,13 +5,14 @@ metadata:
   title: testcontainerazure
   description: nginx:alpine on azure amd64 for team teama
   annotations:
-    cf/status: deploying
+    cf/status: ready
     cf/url: https://testcontainerazure.apps.idp.amirasyraf.dev
     cf/requested-by: user1
     cf/requested-at: "2026-11-27T00:56:40Z"
     cf/request-id: bd8d6a80-5289-4c06-8af6-b86279da7677
-    cf/run-id: "45919684616"
-    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45919684616
+    cf/run-id: "45919849271"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45919849271
+    cf/ready-at: "2026-11-27T00:58:31Z"
 spec:
   type: container
   owner: group:default/teama
