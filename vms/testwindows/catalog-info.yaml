@@ -5,7 +5,7 @@ metadata:
   title: testwindows
   description: windows VM on aws (S) for team teama
   annotations:
-    cf/status: frying
+    cf/status: ready
     cf/public-ip: "54.252.187.226"
     cf/ssh-user: Administrator
     cf/instance-id: "i-03a0bae5e55c3ed20"
@@ -13,8 +13,9 @@ metadata:
     cf/requested-by: user1
     cf/requested-at: "2026-11-27T00:54:31Z"
     cf/request-id: 213fde29-100a-4b7d-a8ff-e0e6d5780bcc
-    cf/run-id: "45920668783"
-    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45920668783
+    cf/run-id: "45920788067"
+    cf/run-url: https://github.com/amirasyraf/vendy-platform/actions/runs/45920788067
+    cf/ready-at: "2026-11-27T01:08:02Z"
 spec:
   type: vm
   owner: group:default/teama
